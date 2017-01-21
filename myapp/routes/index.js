@@ -1,19 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-// var Redis = require('ioredis');
-// var redis = new Redis(6379, '88.190.3.123');
-// var pub = new Redis();
+var Redis = require('ioredis');
+var redis = new Redis();
+var pub = new Redis();
+
+var chat_channel = 'chat';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // redis.subscribe('news', 'music', function (err, count) {
-  //   // Now we are subscribed to both the 'news' and 'music' channels.
-  //   // `count` represents the number of channels we are currently subscribed to.
-  //
-  //   pub.publish('news', 'Hello world!');
-  //   pub.publish('music', 'Hello again!');
-  // });
+  // subscribe on channel
+  redis.subscribe(chat_channel, function (err, count) {
+    pub.publish(chat_channel, 'Bonjour le tchat !');
+  });
+
+  // get messages in console
+  redis.on('message', function (channel, message) {
+      console.log('Receive message %s', message);
+  });
+
   res.render('index', { title: 'Express' });
 });
 
