@@ -1,9 +1,11 @@
 var express = require("express");
 var app = express();
-var colors = require('colors');
 var port = process.env.PORT || 3000;
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
+var colors = require('colors');
+var favicon = require('express-favicon');
 
 var Redis = require('ioredis');
 var redis = new Redis();
@@ -14,6 +16,8 @@ server.listen(port, function () {
 });
 
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + 'favicon.ico'));
+
 app.set('views', __dirname + '/views');
 app.set('view engine', "pug");
 app.engine('pug', require('pug').__express);
