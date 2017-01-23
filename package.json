@@ -1,0 +1,26 @@
+{
+  "name": "chat-redis",
+  "version": "1.0.0",
+  "description": "Real time chat using nodejs and Redis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axel-Girard/ChatRedis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Axel-Girard/ChatRedis/issues"
+  },
+  "homepage": "https://github.com/Axel-Girard/ChatRedis#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.14.0",
+    "ioredis": "^2.5.0",
+    "pug": "^2.0.0-beta6",
+    "socket.io": "^1.7.2"
+  }
+}
