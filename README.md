@@ -2,7 +2,7 @@
 
 A chat using pub/sub in redis and socket.io
 
-![alt tag](https://media.giphy.com/media/dOnER85jWuW2c/giphy.gif)
+![alt tag](https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif)
 
 Download
 ```sh
