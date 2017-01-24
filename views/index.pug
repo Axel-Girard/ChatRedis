@@ -2,15 +2,24 @@ doctype html
 html
   head
     title= "Real time web chat"
-    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", rel="stylesheet")
+    link(href="/style.css", rel="stylesheet")
     script(src='https://code.jquery.com/jquery-2.2.0.min.js')
     script(src='/chat.js')
     script(src='/socket.io/socket.io.js')
   body
-    #content(style='width:500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
-    .controls
-      | Name
-      input#name(style='width:360px;')
-      br
-      input#field(style='width:350px;')
-      input#send(type='button', value='send')
+    div.container
+      div.row
+        form.col-md-12
+          div.form-group
+            div.input-group
+              span.input-group-addon
+                | @
+              input#name.form-control(type="text" placeholder="Username")
+            #content
+            .controls
+              div.input-group
+                br
+                input#field.form-control(type="text")
+                span.input-group-btn
+                  input#send.btn.btn-secondary(type='button', value='Send')
